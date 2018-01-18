@@ -69,6 +69,10 @@ After all this, all you need to do is write 'gulp' the command screen and check 
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) - Install package with NPM
 * [gulp-config](https://www.npmjs.com/package/gulp-config) - Install package with NPM
 
+## How to install?
+```
+npm install gulp-render-json --save-dev
+```
 
 ## Author
 
