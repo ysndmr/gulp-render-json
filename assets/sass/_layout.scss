@@ -8,11 +8,19 @@
 		max-width:980px;
 		min-width:980px;
 		text-align:center;
+		    margin: 0 auto;
 	}
 	header{
 		width:$primary-width;
 		background-color:#000;
 		padding:10px 15px;
 		display: inline-block;
+		color:$secondary-color;
+		font-size:30px;
+		a{
+			color:$secondary-color;
+			font-size:16px;
+			text-decoration: underline
+		}
 	}
 }
