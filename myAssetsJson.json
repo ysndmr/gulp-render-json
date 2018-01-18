@@ -21,7 +21,7 @@
           "footerOutputhFileName": "output-myjs-footer.js"
         }
       },
-      "destination": "myProjectOutput"
+      "destination": "myProjectOutput" 
     }
   ],
   "defaultPathsettings": {
