@@ -1,0 +1,10 @@
+  .clearfix::after,
+  .clearfix::before {
+      content: " ";
+      display: table;
+  }
+
+  .clearfix::after {
+      clear: both;
+  }
+  .swiper-container.swiper-container-vertical, body, html{position: relative;height:100%}

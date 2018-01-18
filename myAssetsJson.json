@@ -1,0 +1,33 @@
+{
+  "options": [
+    {
+      "project": "testProject",
+      "source": {
+        "css": [
+          "output.scss"
+        ],
+        "CSSOutPuthfileName": "output-mysass.css",
+        "js": {
+          "header": [
+            "jquery.countdown.min.js",
+            "jquery.easing.min.js"
+          ],
+          "headerOutputhFileName": "output-myjs-header.js",
+          "footer": [
+            "jquery.easytab.js",
+            "jquery.marquee.min.js",
+            "jquery.min.js"
+          ],
+          "footerOutputhFileName": "output-myjs-footer.js"
+        }
+      },
+      "destination": "myProjectOutput"
+    }
+  ],
+  "defaultPathsettings": {
+    "cssPath": "css/",
+    "jsPath": "js/",
+    "assetsDir": "C:/Users/yasindemir/Desktop/GulpSassRenderFromJsonApplication/assets/sass/",
+    "assetsJsDir": "C:/Users/yasindemir/Desktop/GulpSassRenderFromJsonApplication/assets/js/"
+  }
+}

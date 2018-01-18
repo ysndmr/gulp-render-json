@@ -1,0 +1,18 @@
+.wrapper{
+	background-color: $primary-color;
+	width: $primary-width;
+	height: $primary-height;
+	.container{
+		background-color:$secondary-color;
+		width:980px;
+		max-width:980px;
+		min-width:980px;
+		text-align:center;
+	}
+	header{
+		width:$primary-width;
+		background-color:#000;
+		padding:10px 15px;
+		display: inline-block;
+	}
+}

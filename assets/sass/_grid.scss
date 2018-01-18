@@ -1,0 +1,40 @@
+// mixin
+@mixin generate-grid($columns, $size: '') {
+  @for $i from 1 through $columns {
+    $width: calc(100% / ( #{$columns} / #{$i} ));
+    @if($size == '') {
+      .col-#{$i}-#{$columns} {
+        width: $width;
+      }
+      .col-offset-#{$i}-#{$columns} {
+        margin-left: $width;
+      }
+    }
+    @else {
+      .col-#{$size}-#{$i}-#{$columns} {
+        width: $width;
+      }
+      .col-#{$size}-offset-#{$i}-#{$columns} {
+        margin-left: $width;
+      }
+    }
+  }
+}
+// style
+@include generate-grid(16);
+@media (min-width: 1200px) {
+  @include generate-grid(16, 'lg');
+}
+* {
+  box-sizing: border-box;
+}
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  border: 1px solid #000;
+}
+[class*="col-"] {
+  float: left;
+}
