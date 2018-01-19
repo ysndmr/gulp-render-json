@@ -16,7 +16,7 @@
           "headerOutputhFileName": "output-myjs-header.js",
           "footer": [
             "jquery.easytab.js",
-            "jquery.marquee.min.js",
+            "jquery.marquee.min.js"
           ],
           "footerOutputhFileName": "output-myjs-footer.js"
         }
@@ -26,8 +26,9 @@
   ],
   "defaultPathsettings": {
     "cssPath": "css/",
+    "sassPath":"sass/",
     "jsPath": "js/",
-    "assetsDir": "C:/Users/yourpcname/Desktop/GulpSassRenderFromJsonApplication/assets/sass/",
-    "assetsJsDir": "C:/Users/yourpcname/Desktop/GulpSassRenderFromJsonApplication/assets/js/"
+    "assetsDir": "C:/Users/yasindemir/Desktop/GulpSassRenderFromJsonApplication/assets/",
+    "assetsJsDir": "C:/Users/yasindemir/Desktop/GulpSassRenderFromJsonApplication/assets/js/"
   }
 }

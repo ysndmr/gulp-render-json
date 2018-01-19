@@ -16,6 +16,8 @@ var gulp = require('gulp'),
         config = require('C:/Users/yasindemir/Desktop/GulpSassRenderFromJsonApplication/myAssetsJson.json'),
         concat = require('gulp-concat'),
         cleanCss = require('gulp-clean-css'),
+        typescript = require('gulp-typescript'),
+        gutil = require('gulp-util'),
         strip = require('gulp-strip-comments'),
         filesExist = require('files-exist'),
         autoprefixer = require('gulp-autoprefixer'),
@@ -28,13 +30,15 @@ function sassSettingsRender(obj, defaultPathsettings) {
         var newCssArray = [];
     if(obj.source.css.length > 0) {
         for (i = 0; i < obj.source.css.length; i++) {
-            newCssArray.push(defaultPathsettings.assetsDir + obj.source.css[i]);
+            newCssArray.push(defaultPathsettings.assetsDir + defaultPathsettings.sassPath + obj.source.css[i]);
         }
         return gulp.src(filesExist(newCssArray))
                 .pipe(sourcemaps.init())
                 .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
-                .pipe(sourcemaps.write('./maps'))
-                .pipe(autoprefixer())
+                .pipe(autoprefixer({
+                    browsers: ['last 2 versions'],
+                    cascade: false
+                }))
                 .pipe(concat(obj.source.CSSOutPuthfileName))
                 .pipe(cleanCss({
                     compatibility: 'ie8',
@@ -42,7 +46,8 @@ function sassSettingsRender(obj, defaultPathsettings) {
                     processImport: false,
                     inline: ['none']
                 }))
-                .pipe(gulp.dest(defaultPathsettings.assetsDir + defaultPathsettings.customV3 + obj.destination));
+                .pipe(sourcemaps.write('.'))
+                .pipe(gulp.dest(defaultPathsettings.assetsDir + defaultPathsettings.cssPath + obj.destination));
     }
 }
 /**
@@ -60,12 +65,18 @@ function jsOptimization(obj, defaultPathsettings, type) {
         gulp.src(filesExist(myJsArray))
                 .pipe(concat(obj.source.js.headerOutputhFileName))
                 .pipe(strip())
+                .pipe(typescript({
+                    target: "es5",
+                    allowJs: true,
+                    module: "commonjs",
+                    moduleResolution: "node"
+                }))
                 .pipe(uglify({
-                    preserveComments: 'license',
                     compress: {
                         hoist_funs: false
                     }
                 }))
+                .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
                 .pipe(gulp.dest(defaultPathsettings.assetsJsDir + obj.destination));
         }
     } else if (type == "footer") {
@@ -75,15 +86,21 @@ function jsOptimization(obj, defaultPathsettings, type) {
                 myJsArray.push(defaultPathsettings.assetsJsDir + obj.source.js.footer[i]);
             }
         }
-        gulp.src(filesExist(myJsArray))
+         gulp.src(filesExist(myJsArray))
                 .pipe(concat(obj.source.js.footerOutputhFileName))
                 .pipe(strip())
+                .pipe(typescript({
+                    target: "es5",
+                    allowJs: true,
+                    module: "commonjs",
+                    moduleResolution: "node"
+                }))
                 .pipe(uglify({
-                    preserveComments: 'license',
                     compress: {
                         hoist_funs: false
                     }
                 }))
+                .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
                 .pipe(gulp.dest(defaultPathsettings.assetsJsDir + obj.destination));
     }
 }
