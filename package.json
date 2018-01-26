@@ -21,7 +21,7 @@
   },
   "name": "gulp-render-json",
   "description": "This application allows you to build all of your assets files with a single json file, generate a project with multiple files and files with a single JavaScript function.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
