@@ -26,20 +26,20 @@ You should then change the filenames added as examples in myAssetsJson.json file
         "css": [
           "your.scss"
         ],
-        "CSSOutPuthfileName": "output-mysass.css", // what you want the your css name
+        "CSSOutPuthfileName": "output-mysass.css", // what you want the your output css name
         "js": {
           "header": [
             "your1.js",
             "your2.js",
             "your3.js"
           ],
-          "headerOutputhFileName": "output-myjs-header.js", //what you want the your css name
+          "headerOutputhFileName": "output-myjs-header.js", //what you want the your output js name
           "footer": [
              "your1.js",
             "your2.js",
             "your3.js",
           ],
-          "footerOutputhFileName": "output-myjs-footer.js"  //what you want the your css name
+          "footerOutputhFileName": "output-myjs-footer.js"  //what you want the your output js name
         }
       },
       "destination": "yourProjectDestinion"
