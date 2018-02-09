@@ -68,6 +68,7 @@ After all this, all you need to do is write 'gulp' the command screen and check 
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - Install package with NPM
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) - Install package with NPM
 * [gulp-config](https://www.npmjs.com/package/gulp-config) - Install package with NPM
+* [gulp-jsonlint](https://www.npmjs.com/package/gulp-jsonlint) - Install package with NPM
 
 ## How to install?
 ```
