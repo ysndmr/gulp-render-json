@@ -1,5 +1,5 @@
 /*Install gulp and gulp plugins your system... You can copy and paste the lines starting with npm install below.*/
-/*npm install --save-dev gulp gulp-uglify gulp-concat gulp-clean-css gulp-strip-comments files-exist gulp-autoprefixer gulp-sourcemaps gulp-sass gulp-config*/
+/*npm install --save-dev gulp gulp-uglify gulp-uncss gulp-concat gulp-clean-css gulp-strip-comments files-exist gulp-autoprefixer gulp-sourcemaps gulp-sass gulp-config gulp-jsonlint*/
 /**
  * Variables
  * @type {String}
@@ -22,6 +22,7 @@ var gulp = require('gulp'),
         filesExist = require('files-exist'),
         autoprefixer = require('gulp-autoprefixer'),
         sourcemaps = require('gulp-sourcemaps'),
+        jsonlint = require("gulp-jsonlint"),
         sass = require('gulp-sass');
 
 // run if sass variable is true
@@ -113,7 +114,13 @@ function readSourceSettings(obj, defaultPathsettings) {
     jsOptimization(obj, defaultPathsettings, header);
     jsOptimization(obj, defaultPathsettings, footer);
 }
+function jsonReporter(file){
+    log('File ' + file.path + ' is not valid JSON.');
+}
 gulp.task('default', function () {
+    gulp.src('*.json')
+    .pipe(jsonlint.failOnError())
+    .pipe(jsonlint.reporter(jsonReporter));
     for (var obj in config.options) {
         readSourceSettings(config.options[obj], config.defaultPathsettings);
     }
